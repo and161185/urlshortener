@@ -1,0 +1,12 @@
+# .golangci.yml
+linters:
+  disable-all: true
+  enable:
+    - gofmt
+    - govet
+    - goimports
+    - errcheck
+    - deadcode
+  skip-files:
+    ".*_test.go"
+
