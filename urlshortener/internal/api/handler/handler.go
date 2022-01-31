@@ -3,6 +3,7 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
+	"net"
 	"net/http"
 	"strings"
 
@@ -116,7 +117,24 @@ func (h *HandlerRedirect) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	url := urlScheme.Url
 
 	http.Redirect(w, r, url, http.StatusMovedPermanently)
-	go h.repo.RegisterClick(shortId, r)
+	go h.registerClick(shortId, r)
+}
+
+func (h *HandlerRedirect) registerClick(shortId string, r *http.Request) {
+
+	ip, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		h.log.Errorf("can't split %s", r.RemoteAddr)
+		ip = "undefined"
+	} else {
+		netip := net.ParseIP(ip)
+		if netip == nil {
+			h.log.Errorf("can't get ip from %s", r.RemoteAddr)
+			ip = "undefined"
+		}
+	}
+
+	h.repo.RegisterClick(shortId, ip)
 }
 
 func LoggingMiddleware(logger *logrus.Logger) func(http.Handler) http.Handler {

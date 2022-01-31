@@ -41,67 +41,80 @@ const defaultPort = 80
 const defaultWriteTimeout = 10
 const defaultReadTimeout = 10
 
-func readConfigFile(log *logrus.Logger, configPath string) *config {
+func getConfig(log *logrus.Logger, configPath string) *config {
 	log.Info("loading settings")
 
-	var logLevel logrus.Level
+	cfg, err := readConfigFile(log, configPath)
+
+	if err != nil {
+
+		log.Errorf("Couldn't read config file %s , got %v", configPath, err)
+		log.Info("Use app's default settings")
+
+		log.Level = defaultLogLevel
+		log.Infof("logLevel's default value %v is setted", defaultLogLevel)
+
+		cfg = &config{}
+	} else {
+		log.Infof("string logrus level: %s", cfg.LogLevel)
+		level, err := logrus.ParseLevel(cfg.LogLevel)
+		if err != nil {
+			log.Errorf("Couldn't parse log level, got %v", err)
+			level = defaultLogLevel
+		}
+		log.Level = level
+	}
+
+	if cfg.DbName == "" {
+		cfg.DbName = defaultDbName
+		log.Infof("Port can't be empty. Default value %v is setted", defaultDbName)
+	}
+
+	if cfg.Port == 0 {
+		cfg.Port = defaultPort
+		log.Infof("Port can't be 0. Default value %v is setted", defaultPort)
+	}
+
+	if cfg.ReadTimeout == 0 {
+		cfg.ReadTimeout = defaultReadTimeout
+		log.Infof("ReadTimeout can't be 0. Default value %v is setted", defaultReadTimeout)
+	}
+
+	if cfg.WriteTimeout == 0 {
+		cfg.WriteTimeout = defaultWriteTimeout
+		log.Infof("WriteTimeout can't be 0. Default value %v is setted", defaultWriteTimeout)
+	}
+
+	log.Info("Settings loaded")
+
+	return cfg
+}
+
+func readConfigFile(log *logrus.Logger, configPath string) (*config, error) {
+
+	log.Info("reading config file")
+
 	result := &config{}
 
 	_, err := os.Stat(configPath)
 
-	defer func() {
-		if err != nil {
-
-			log.Errorf("Couldn't read config file %s , got %v", configPath, err)
-			log.Info("Use app's default settings")
-
-			logLevel = defaultLogLevel
-			log.Infof("logLevel's default value %v is setted", defaultLogLevel)
-		}
-
-		if result.DbName == "" {
-			result.DbName = defaultDbName
-			log.Infof("Port can't be empty. Default value %v is setted", defaultDbName)
-		}
-		if result.Port == 0 {
-			result.Port = defaultPort
-			log.Infof("Port can't be 0. Default value %v is setted", defaultPort)
-		}
-		if result.ReadTimeout == 0 {
-			result.ReadTimeout = defaultReadTimeout
-			log.Infof("ReadTimeout can't be 0. Default value %v is setted", defaultReadTimeout)
-		}
-		if result.WriteTimeout == 0 {
-			result.WriteTimeout = defaultWriteTimeout
-			log.Infof("WriteTimeout can't be 0. Default value %v is setted", defaultWriteTimeout)
-		}
-
-		log.Level = logLevel
-		log.Info("Settings loaded")
-
-	}()
-
 	if err != nil {
-		return nil
+		log.Errorf("Couldn't stat config file %s , got %v", configPath, err)
+		return nil, err
 	}
 
 	yamlFile, err := ioutil.ReadFile(configPath)
 	if err != nil {
-		return nil
+		log.Errorf("Couldn't read config file %s , got %v", configPath, err)
+		return nil, err
 	}
+
 	err = yaml.Unmarshal(yamlFile, result)
 	if err != nil {
-		return nil
+		return nil, err
 	}
 
-	log.Infof("string logrus level: %s", result.LogLevel)
-	level, err := logrus.ParseLevel(result.LogLevel)
-	if err != nil {
-		return nil
-	}
-	logLevel = level
-
-	return result
+	return result, nil
 }
 
 func NewApp() *app {
@@ -124,7 +137,7 @@ func NewApp() *app {
 	var configPath *string = flag.String("conf", ".\\config\\config.yaml", "Configuration file's path")
 	flag.Parse()
 
-	conf := readConfigFile(log, (*configPath))
+	conf := getConfig(log, (*configPath))
 
 	a := &app{
 		log:    log,

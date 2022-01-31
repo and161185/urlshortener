@@ -3,7 +3,6 @@ package usstorage
 import (
 	//"os"
 
-	"net/http"
 	"os"
 	"testing"
 	"urlshortener/internal/models"
@@ -54,7 +53,7 @@ func TestGetStats(t *testing.T) {
 		Url: "http:\\yandex.ru",
 	}
 	su, _ := d.GenerateShortUrl(us)
-	d.RegisterClick(su.ShortId, &http.Request{RemoteAddr: "127.0.0.1:80"})
+	d.RegisterClick(su.ShortId, "127.0.0.1")
 	stats, _ := d.GetStats(su.StatId)
 
 	assert.Equal(t, int64(1), stats.ClickCount)

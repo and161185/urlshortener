@@ -4,8 +4,6 @@ import (
 	"database/sql"
 	"errors"
 	"math/big"
-	"net"
-	"net/http"
 	neturl "net/url"
 	"os"
 	"strings"
@@ -207,19 +205,7 @@ func (d *dbdriver) GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, 
 	return urlScheme, nil
 }
 
-func (d *dbdriver) RegisterClick(shortId string, r *http.Request) (err error) {
-	ip, _, err := net.SplitHostPort(r.RemoteAddr)
-	if err != nil {
-		d.log.Errorf("can't split %s", r.RemoteAddr)
-		ip = "undefined"
-	} else {
-		netip := net.ParseIP(ip)
-		if netip == nil {
-			d.log.Errorf("can't get ip from %s", r.RemoteAddr)
-			ip = "undefined"
-		}
-	}
-
+func (d *dbdriver) RegisterClick(shortId string, ip string) (err error) {
 	insertSQL := `INSERT INTO clicks(shortId, IP, time) VALUES (?, ?, ?)`
 	_, err = d.db.Exec(insertSQL, shortId, ip, time.Now())
 

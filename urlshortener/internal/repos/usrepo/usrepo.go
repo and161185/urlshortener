@@ -2,7 +2,6 @@ package usrepo
 
 import (
 	"fmt"
-	"net/http"
 	"urlshortener/internal/models"
 )
 
@@ -10,7 +9,7 @@ type UrlShortenerRepo interface {
 	Close()
 	GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error)
 	GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, err error)
-	RegisterClick(shortId string, r *http.Request) (err error)
+	RegisterClick(shortId string, ip string) (err error)
 	GetStats(statId string) (ss *models.StatsScheme, err error)
 }
 
@@ -46,8 +45,8 @@ func (us *UrlShortener) GetFullUrl(shortId string) (urlScheme *models.FullUrlSch
 	return urlScheme, nil
 }
 
-func (us *UrlShortener) RegisterClick(shortId string, r *http.Request) (err error) {
-	err = us.repo.RegisterClick(shortId, r)
+func (us *UrlShortener) RegisterClick(shortId string, ip string) (err error) {
+	err = us.repo.RegisterClick(shortId, ip)
 	if err != nil {
 		return fmt.Errorf("register click error: %w", err)
 	}
