@@ -147,8 +147,8 @@ func LoggingMiddleware(logger *logrus.Logger) func(http.Handler) http.Handler {
 				}
 			}()
 
-			next.ServeHTTP(w, r)
 			logger.Infoln("method", r.Method, "path", r.URL.EscapedPath())
+			next.ServeHTTP(w, r)
 
 		}
 

@@ -6,7 +6,6 @@ import (
 )
 
 type UrlShortenerRepo interface {
-	Close()
 	GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error)
 	GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, err error)
 	RegisterClick(shortId string, ip string) (err error)
@@ -21,10 +20,6 @@ func NewUrlShortener(r UrlShortenerRepo) *UrlShortener {
 	return &UrlShortener{
 		repo: r,
 	}
-}
-
-func (us *UrlShortener) Close() {
-	us.repo.Close()
 }
 
 func (us *UrlShortener) GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error) {

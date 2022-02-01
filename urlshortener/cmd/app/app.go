@@ -67,7 +67,7 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 
 	if cfg.DbName == "" {
 		cfg.DbName = defaultDbName
-		log.Infof("Port can't be empty. Default value %v is setted", defaultDbName)
+		log.Infof("DbName can't be empty. Default value %v is setted", defaultDbName)
 	}
 
 	if cfg.Port == 0 {
@@ -153,7 +153,7 @@ func (a *app) Run() {
 
 	uss := usstorage.NewUSStorage(a.log, a.config.DbName)
 	us := usrepo.NewUrlShortener(uss)
-	defer us.Close()
+	defer uss.Close()
 
 	a.us = us
 	router := handler.NewHandler(a.log, us)
