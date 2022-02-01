@@ -1,0 +1,365 @@
+{"level":"info","msg":"App initialized","time":"2022-01-11T18:04:45+03:00"}
+{"level":"info","msg":"method GET path /generate","time":"2022-01-11T18:05:29+03:00"}
+{"level":"info","msg":"method GET path /stat/ololo","time":"2022-01-11T18:05:58+03:00"}
+{"level":"info","msg":"method GET path /statololo","time":"2022-01-11T18:06:05+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-11T18:19:23+03:00"}
+{"level":"info","msg":"HandlerRedirect","time":"2022-01-11T18:19:28+03:00"}
+{"level":"info","msg":"method GET path /statololo","time":"2022-01-11T18:19:28+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:26:24+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:42:14+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:42:54+03:00"}
+{"level":"info","msg":"HandlerRedirect","time":"2022-01-12T15:44:00+03:00"}
+{"level":"info","msg":"method GET path /statololo","time":"2022-01-12T15:44:00+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:44:16+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:44:16+03:00"}
+{"level":"info","msg":"HandlerRedirect","time":"2022-01-12T15:44:39+03:00"}
+{"level":"info","msg":"method GET path /statololo","time":"2022-01-12T15:44:39+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:45:33+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:46:09+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:46:09+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:46:12+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:46:12+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:46:45+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:46:50+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru {1 63776584861 0x13bafc0}}","time":"2022-01-12T15:46:50+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:46:50+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:47:14+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:47:19+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru {1 63776584861 0x143afc0}}","time":"2022-01-12T15:47:19+03:00"}
+{"level":"debug","msg":"[123 125]","time":"2022-01-12T15:47:19+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:47:19+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:49:54+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:50:00+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru {1 63776584861 0xc4afc0}}","time":"2022-01-12T15:50:00+03:00"}
+{"level":"debug","msg":"[123 125]","time":"2022-01-12T15:50:00+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:50:00+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:52:34+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:52:39+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru {1 63776584861 0xd6afc0}}","time":"2022-01-12T15:52:39+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:52:39+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:53:18+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:53:22+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru {1 63776584861 0xb8afc0}}","time":"2022-01-12T15:53:22+03:00"}
+{"level":"debug","msg":"{}","time":"2022-01-12T15:53:22+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:53:22+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T15:57:54+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T15:57:57+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru 2022/01/01}","time":"2022-01-12T15:57:57+03:00"}
+{"level":"debug","msg":"{}","time":"2022-01-12T15:57:57+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T15:57:57+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T16:00:02+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-12T16:00:06+03:00"}
+{"level":"debug","msg":"\u0026{yandex.ru google.ru 2022/01/01}","time":"2022-01-12T16:00:06+03:00"}
+{"level":"debug","msg":"{\"Url\":\"yandex.ru\",\"Staturl\":\"google.ru\",\"ExpirationDate\":\"2022/01/01\"}","time":"2022-01-12T16:00:06+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-12T16:00:06+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T16:42:23+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-12T16:43:08+03:00"}
+{"level":"debug","msg":"\u0026{go.dev 11 2022/01/01}","time":"2022-01-12T16:43:08+03:00"}
+{"level":"debug","msg":"{\"FullUrl\":\"go.dev\",\"ClickCount\":11,\"ExpirationDate\":\"2022/01/01\"}","time":"2022-01-12T16:43:08+03:00"}
+{"level":"info","msg":"method GET path /stat/ololo","time":"2022-01-12T16:43:08+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T17:12:29+03:00"}
+{"level":"info","msg":"HandlerRedirect","time":"2022-01-12T17:12:58+03:00"}
+{"level":"info","msg":"method GET path /redir","time":"2022-01-12T17:12:58+03:00"}
+{"level":"info","msg":"HandlerRedirect","time":"2022-01-12T17:13:11+03:00"}
+{"level":"info","msg":"method GET path /redir","time":"2022-01-12T17:13:11+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-12T17:36:34+03:00"}
+{"level":"info","msg":"Create urls table...","time":"2022-01-15T10:53:16+03:00"}
+{"level":"info","msg":"urls table created","time":"2022-01-15T10:53:16+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T10:53:16+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-15T10:55:12+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T10:55:12+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-15T18:41:15+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T18:41:15+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-15T19:03:54+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T19:03:55+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-15T19:05:26+03:00"}
+{"level":"info","msg":"Inserting url record 9DQJZHYcEeybTQoAJwAAAw","time":"2022-01-15T19:05:26+03:00"}
+{"level":"error","msg":"not enough args to execute query: want 4 got 3","time":"2022-01-15T19:05:26+03:00"}
+{"level":"debug","msg":"\u003cnil\u003e","time":"2022-01-15T19:05:26+03:00"}
+{"level":"debug","msg":"null","time":"2022-01-15T19:05:26+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-15T19:05:26+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-15T19:06:11+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T19:06:11+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-15T19:06:20+03:00"}
+{"level":"info","msg":"Inserting url record FjQ77XYdEey6BgoAJwAAAw","time":"2022-01-15T19:06:24+03:00"}
+{"level":"error","msg":"not enough args to execute query: want 4 got 3","time":"2022-01-15T19:06:24+03:00"}
+{"level":"debug","msg":"\u003cnil\u003e","time":"2022-01-15T19:06:39+03:00"}
+{"level":"debug","msg":"null","time":"2022-01-15T19:06:52+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-15T19:06:58+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-15T19:07:07+03:00"}
+{"level":"info","msg":"Inserting url record Ma0nb3YdEey6BgoAJwAAAw","time":"2022-01-15T19:07:10+03:00"}
+{"level":"error","msg":"not enough args to execute query: want 4 got 3","time":"2022-01-15T19:07:48+03:00"}
+{"level":"debug","msg":"\u003cnil\u003e","time":"2022-01-15T19:07:53+03:00"}
+{"level":"debug","msg":"null","time":"2022-01-15T19:07:53+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-15T19:07:53+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-15T19:08:04+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T19:08:04+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-15T19:08:08+03:00"}
+{"level":"info","msg":"Inserting url record VJ8593YdEeyitQoAJwAAAw","time":"2022-01-15T19:08:08+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-01-15T19:08:08+03:00"}
+{"level":"debug","msg":"\u003cnil\u003e","time":"2022-01-15T19:08:08+03:00"}
+{"level":"debug","msg":"null","time":"2022-01-15T19:08:08+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-15T19:08:08+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-15T19:08:49+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-15T19:08:49+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-15T19:08:52+03:00"}
+{"level":"info","msg":"Inserting url record bpUvZnYdEeyRCQoAJwAAAw","time":"2022-01-15T19:08:52+03:00"}
+{"level":"debug","msg":"\u0026{https://go.dev/play/ AQ bpUvZnYdEeyRCQoAJwAAAw 2022-02-15}","time":"2022-01-15T19:08:52+03:00"}
+{"level":"debug","msg":"{\"FullUrl\":\"https://go.dev/play/\",\"Url\":\"AQ\",\"Staturl\":\"bpUvZnYdEeyRCQoAJwAAAw\",\"ExpirationDate\":\"2022-02-15\"}","time":"2022-01-15T19:08:52+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-15T19:08:52+03:00"}
+{"level":"info","msg":"Create urls table...","time":"2022-01-16T11:59:55+03:00"}
+{"level":"info","msg":"urls table created","time":"2022-01-16T11:59:55+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T11:59:55+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-16T12:02:44+03:00"}
+{"level":"info","msg":"Inserting url record EZG95HarEeyH7woAJwAAAw","time":"2022-01-16T12:02:44+03:00"}
+{"level":"debug","msg":"\u0026{https://go.dev/play/ AQ EZG95HarEeyH7woAJwAAAw 2022-02-16}","time":"2022-01-16T12:02:44+03:00"}
+{"level":"debug","msg":"{\"FullUrl\":\"https://go.dev/play/\",\"ShortId\":\"AQ\",\"StatId\":\"EZG95HarEeyH7woAJwAAAw\",\"ExpirationDate\":\"2022-02-16\"}","time":"2022-01-16T12:02:44+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-16T12:02:44+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T12:03:55+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T12:03:55+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-16T12:04:04+03:00"}
+{"level":"info","msg":"Inserting url record QRDTLHarEey4sgoAJwAAAw","time":"2022-01-16T12:04:04+03:00"}
+{"level":"debug","msg":"\u0026{https://go.dev/play/ Ag QRDTLHarEey4sgoAJwAAAw 2022-02-16}","time":"2022-01-16T12:04:04+03:00"}
+{"level":"debug","msg":"{\"FullUrl\":\"https://go.dev/play/\",\"ShortId\":\"Ag\",\"StatId\":\"QRDTLHarEey4sgoAJwAAAw\",\"ExpirationDate\":\"2022-02-16\"}","time":"2022-01-16T12:04:04+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-16T12:04:04+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-16T12:04:06+03:00"}
+{"level":"info","msg":"Inserting url record QnWTInarEey4sgoAJwAAAw","time":"2022-01-16T12:04:06+03:00"}
+{"level":"debug","msg":"\u0026{https://go.dev/play/ Aw QnWTInarEey4sgoAJwAAAw 2022-02-16}","time":"2022-01-16T12:04:06+03:00"}
+{"level":"debug","msg":"{\"FullUrl\":\"https://go.dev/play/\",\"ShortId\":\"Aw\",\"StatId\":\"QnWTInarEey4sgoAJwAAAw\",\"ExpirationDate\":\"2022-02-16\"}","time":"2022-01-16T12:04:06+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-16T12:04:06+03:00"}
+{"level":"error","msg":"no such column: shortLink","time":"2022-01-16T12:05:23+03:00"}
+{"level":"error","msg":"no such column: shortLink","time":"2022-01-16T12:05:23+03:00"}
+{"level":"info","msg":"method GET path /AQ","time":"2022-01-16T12:05:23+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T12:18:03+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T12:18:03+03:00"}
+{"level":"error","msg":"Short url doesn't exist","time":"2022-01-16T12:18:46+03:00"}
+{"level":"error","msg":"Short url doesn't exist","time":"2022-01-16T12:18:46+03:00"}
+{"level":"info","msg":"method GET path /Aq","time":"2022-01-16T12:18:46+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T12:19:33+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T12:19:33+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T12:21:46+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T12:21:46+03:00"}
+{"level":"error","msg":"sql: Scan error on column index 0, name \"url\": unsupported Scan, storing driver.Value type string into type *models.FullUrlScheme","time":"2022-01-16T12:21:51+03:00"}
+{"level":"error","msg":"sql: Scan error on column index 0, name \"url\": unsupported Scan, storing driver.Value type string into type *models.FullUrlScheme","time":"2022-01-16T12:21:51+03:00"}
+{"level":"info","msg":"method GET path /Aq","time":"2022-01-16T12:21:51+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T12:38:28+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T12:38:28+03:00"}
+{"level":"info","msg":"method GET path /Aq","time":"2022-01-16T12:38:32+03:00"}
+{"level":"info","msg":"method GET path /Aq","time":"2022-01-16T12:38:39+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T13:09:10+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T13:09:11+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T13:09:27+03:00"}
+{"level":"error","msg":"Stat url doesn't exist","time":"2022-01-16T13:09:27+03:00"}
+{"level":"error","msg":"Stat url doesn't exist","time":"2022-01-16T13:09:27+03:00"}
+{"level":"info","msg":"method GET path /stat/ololo","time":"2022-01-16T13:09:27+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T13:09:40+03:00"}
+{"level":"error","msg":"sql: Scan error on column index 0, name \"expirationDate\": unsupported Scan, storing driver.Value type string into type *time.Time","time":"2022-01-16T13:09:40+03:00"}
+{"level":"error","msg":"sql: Scan error on column index 0, name \"expirationDate\": unsupported Scan, storing driver.Value type string into type *time.Time","time":"2022-01-16T13:09:40+03:00"}
+{"level":"info","msg":"method GET path /stat/EZG95HarEeyH7woAJwAAAw","time":"2022-01-16T13:09:40+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T13:12:13+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T13:12:13+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T13:12:21+03:00"}
+{"level":"debug","msg":"\u0026{5 2022-02-16 12:02:44.7931939+03:00}","time":"2022-01-16T13:12:21+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":5,\"ExpirationDate\":\"2022-02-16 12:02:44.7931939+03:00\"}","time":"2022-01-16T13:12:21+03:00"}
+{"level":"info","msg":"method GET path /stat/EZG95HarEeyH7woAJwAAAw","time":"2022-01-16T13:12:21+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T13:29:06+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T13:29:06+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T13:29:10+03:00"}
+{"level":"debug","msg":"\u0026{5 2022-02-16}","time":"2022-01-16T13:29:10+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":5,\"ExpirationDate\":\"2022-02-16\"}","time":"2022-01-16T13:29:10+03:00"}
+{"level":"info","msg":"method GET path /stat/EZG95HarEeyH7woAJwAAAw","time":"2022-01-16T13:29:10+03:00"}
+{"level":"info","msg":"shutting down","time":"2022-01-16T13:29:23+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:10:30+03:00"}
+{"level":"info","msg":"Create clicks table...","time":"2022-01-16T19:10:30+03:00"}
+{"level":"info","msg":"clicks table created","time":"2022-01-16T19:10:30+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:10:30+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-01-16T19:10:49+03:00"}
+{"level":"info","msg":"Inserting url record 3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:10:49+03:00"}
+{"level":"debug","msg":"\u0026{https://go.dev/play/ BA 3uX9kHbmEeyH0QoAJwAAAw 2022-02-16}","time":"2022-01-16T19:10:49+03:00"}
+{"level":"debug","msg":"{\"FullUrl\":\"https://go.dev/play/\",\"ShortId\":\"BA\",\"StatId\":\"3uX9kHbmEeyH0QoAJwAAAw\",\"ExpirationDate\":\"2022-02-16\"}","time":"2022-01-16T19:10:49+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-01-16T19:10:49+03:00"}
+{"level":"info","msg":"method GET path /Aq","time":"2022-01-16T19:10:55+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:11:05+03:00"}
+{"level":"error","msg":"no such column: urls.shortLink","time":"2022-01-16T19:11:05+03:00"}
+{"level":"error","msg":"no such column: urls.shortLink","time":"2022-01-16T19:11:05+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:11:05+03:00"}
+{"level":"info","msg":"shutting down","time":"2022-01-16T19:11:27+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:11:30+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-01-16T19:11:30+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:11:30+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:11:34+03:00"}
+{"level":"debug","msg":"\u0026{0 2022-02-16 []}","time":"2022-01-16T19:11:34+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":0,\"ExpirationDate\":\"2022-02-16\",\"Clicks\":null}","time":"2022-01-16T19:11:34+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:11:34+03:00"}
+{"level":"info","msg":"method GET path /BA","time":"2022-01-16T19:11:56+03:00"}
+{"level":"info","msg":"method GET path /BA","time":"2022-01-16T19:11:58+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:12:01+03:00"}
+{"level":"debug","msg":"\u0026{2 2022-02-16 []}","time":"2022-01-16T19:12:01+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":2,\"ExpirationDate\":\"2022-02-16\",\"Clicks\":null}","time":"2022-01-16T19:12:01+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:12:01+03:00"}
+{"level":"info","msg":"shutting down","time":"2022-01-16T19:13:35+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:13:38+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-01-16T19:13:38+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:13:38+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:13:42+03:00"}
+{"level":"error","msg":"ambiguous column name: ShortID","time":"2022-01-16T19:13:42+03:00"}
+{"level":"error","msg":"ambiguous column name: ShortID","time":"2022-01-16T19:13:42+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:13:42+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:13:58+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-01-16T19:13:58+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:13:58+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:14:05+03:00"}
+{"level":"debug","msg":"\u0026{2 2022-02-16 [0xc000054b40 0xc000054b60]}","time":"2022-01-16T19:14:05+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":2,\"ExpirationDate\":\"2022-02-16\",\"Clicks\":[{\"IP\":\"\",\"Time\":\"0001-01-01 00:00:00\"},{\"IP\":\"\",\"Time\":\"0001-01-01 00:00:00\"}]}","time":"2022-01-16T19:14:05+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:14:05+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:15:58+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-01-16T19:15:58+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:15:58+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:16:07+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:17:36+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-01-16T19:17:36+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:17:36+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:17:41+03:00"}
+{"level":"debug","msg":"\u0026{2 2022-02-16 [0xc000050b20 0xc000050b40]}","time":"2022-01-16T19:18:05+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":2,\"ExpirationDate\":\"2022-02-16\",\"Clicks\":[{\"IP\":\"\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0001\",\"Time\":\"2022-01-16 19:11:58\"},{\"IP\":\"\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0001\",\"Time\":\"2022-01-16 19:11:56\"}]}","time":"2022-01-16T19:18:05+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:18:05+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:18:17+03:00"}
+{"level":"debug","msg":"\u0026{2 2022-02-16 [0xc000050ce0 0xc000050d00]}","time":"2022-01-16T19:18:17+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":2,\"ExpirationDate\":\"2022-02-16\",\"Clicks\":[{\"IP\":\"\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0001\",\"Time\":\"2022-01-16 19:11:58\"},{\"IP\":\"\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0001\",\"Time\":\"2022-01-16 19:11:56\"}]}","time":"2022-01-16T19:18:17+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:18:17+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-01-16T19:24:20+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-01-16T19:24:20+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-01-16T19:24:20+03:00"}
+{"level":"info","msg":"method GET path /BA","time":"2022-01-16T19:24:26+03:00"}
+{"level":"info","msg":"method GET path /BA","time":"2022-01-16T19:24:27+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-01-16T19:24:30+03:00"}
+{"level":"debug","msg":"\u0026{4 2022-02-16 [0xc000236160 0xc000236180 0xc0002361a0 0xc0002361e0]}","time":"2022-01-16T19:24:30+03:00"}
+{"level":"debug","msg":"{\"ClickCount\":4,\"ExpirationDate\":\"2022-02-16\",\"Clicks\":[{\"IP\":\"::1\",\"Time\":\"2022-01-16 19:24:27\"},{\"IP\":\"::1\",\"Time\":\"2022-01-16 19:24:26\"},{\"IP\":\"\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0001\",\"Time\":\"2022-01-16 19:11:58\"},{\"IP\":\"\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0001\",\"Time\":\"2022-01-16 19:11:56\"}]}","time":"2022-01-16T19:24:30+03:00"}
+{"level":"info","msg":"method GET path /stat/3uX9kHbmEeyH0QoAJwAAAw","time":"2022-01-16T19:24:30+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-01-31T20:43:53+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-01-31T20:43:54+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-01-31T20:43:54+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-01-31T20:44:01+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-01-31T20:44:03+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-01-31T20:44:03+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-02-01T20:28:41+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:28:41+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"DbName can't be empty. Default value data.db is setted","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"Port can't be 0. Default value 80 is setted","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"ReadTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"WriteTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"Settings loaded","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-02-01T20:28:41+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:28:59+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:28:59+03:00"}
+{"level":"info","msg":"Inserting url record cKyWioOEEeyf25AuFqV7Hg","time":"2022-02-01T20:28:59+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:28:59+03:00"}
+{"level":"error","msg":"generate short url error: NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:28:59+03:00"}
+{"level":"info","msg":"method GET path /Ag","time":"2022-02-01T20:29:21+03:00"}
+{"level":"error","msg":"Short url doesn't exist","time":"2022-02-01T20:29:21+03:00"}
+{"level":"error","msg":"get full url error: Short url doesn't exist","time":"2022-02-01T20:29:21+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:29:23+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:29:23+03:00"}
+{"level":"info","msg":"Inserting url record fyMdB4OEEeyf25AuFqV7Hg","time":"2022-02-01T20:29:23+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:29:23+03:00"}
+{"level":"error","msg":"generate short url error: NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:29:23+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-02-01T20:32:28+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:32:28+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"DbName can't be empty. Default value data.db is setted","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"Port can't be 0. Default value 80 is setted","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"ReadTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"WriteTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"Settings loaded","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-02-01T20:32:28+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:32:33+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:32:33+03:00"}
+{"level":"info","msg":"Inserting url record 8FYamIOEEeymZJAuFqV7Hg","time":"2022-02-01T20:32:33+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:32:33+03:00"}
+{"level":"error","msg":"generate short url error: NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:32:33+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:32:34+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:32:34+03:00"}
+{"level":"info","msg":"Inserting url record 8TDtM4OEEeymZJAuFqV7Hg","time":"2022-02-01T20:32:34+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:32:34+03:00"}
+{"level":"error","msg":"generate short url error: NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:32:34+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-02-01T20:32:55+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:32:55+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"DbName can't be empty. Default value data.db is setted","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"Port can't be 0. Default value 80 is setted","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"ReadTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"WriteTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"Settings loaded","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-02-01T20:32:55+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-02-01T20:34:05+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:34:05+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"DbName can't be empty. Default value data.db is setted","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"Port can't be 0. Default value 80 is setted","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"ReadTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"WriteTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"Settings loaded","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-02-01T20:34:05+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-02-01T20:41:16+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:41:16+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"DbName can't be empty. Default value data.db is setted","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"Port can't be 0. Default value 80 is setted","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"ReadTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"WriteTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"Settings loaded","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"urls table exists","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"clicks table exists","time":"2022-02-01T20:41:16+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:41:38+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:41:38+03:00"}
+{"level":"info","msg":"Inserting url record NZNvEIOGEeyK9JAuFqV7Hg","time":"2022-02-01T20:41:38+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:41:38+03:00"}
+{"level":"error","msg":"generate short url error: NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:41:38+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:43:34+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:43:34+03:00"}
+{"level":"info","msg":"Inserting url record em0xyIOGEeyK9JAuFqV7Hg","time":"2022-02-01T20:43:34+03:00"}
+{"level":"error","msg":"NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:43:34+03:00"}
+{"level":"error","msg":"generate short url error: NOT NULL constraint failed: urls.clicks","time":"2022-02-01T20:43:34+03:00"}
+{"level":"info","msg":"loading settings","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"reading config file","time":"2022-02-01T20:43:55+03:00"}
+{"level":"error","msg":"Couldn't stat config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:43:55+03:00"}
+{"level":"error","msg":"Couldn't read config file .\\config\\config.yaml , got CreateFile .\\config\\config.yaml: The system cannot find the path specified.","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"Use app's default settings","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"logLevel's default value info is setted","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"DbName can't be empty. Default value data.db is setted","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"Port can't be 0. Default value 80 is setted","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"ReadTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"WriteTimeout can't be 0. Default value 10 is setted","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"Settings loaded","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"App initialized","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"Create urls table...","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"urls table created","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"Create clicks table...","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"clicks table created","time":"2022-02-01T20:43:55+03:00"}
+{"level":"info","msg":"method POST path /generate","time":"2022-02-01T20:43:59+03:00"}
+{"level":"info","msg":"HandlerGenerate","time":"2022-02-01T20:43:59+03:00"}
+{"level":"info","msg":"Inserting url record iZ2CaIOGEey3PZAuFqV7Hg","time":"2022-02-01T20:43:59+03:00"}
+{"level":"info","msg":"method GET path /stat/iZ2CaIOGEey3PZAuFqV7Hg","time":"2022-02-01T20:44:08+03:00"}
+{"level":"info","msg":"HandlerStats","time":"2022-02-01T20:44:08+03:00"}
+{"level":"info","msg":"method GET path /AQ","time":"2022-02-01T20:44:14+03:00"}
