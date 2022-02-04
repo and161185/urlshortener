@@ -5,8 +5,10 @@ WORKDIR /go/src/app
 COPY . .
 
 #RUN ls && exit 1
-RUN GOOS=linux GOARCH=amd64 \
-    go build -o /build/bin/api ./cmd
+#RUN GOOS=linux GOARCH=amd64 \
+#    go build -o /build/bin/api ./cmd
+
+RUN go build -o /build/bin/api ./cmd
 
 #EXPOSE 80
 
