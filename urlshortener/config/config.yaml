@@ -1,5 +1,0 @@
-dbname: data.db
-logLevel: Debug
-port: 80
-writetimeout: 10
-readtimeout: 10
