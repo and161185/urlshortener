@@ -44,7 +44,18 @@ const defaultReadTimeout = 10
 func getConfig(log *logrus.Logger, configPath string) *config {
 	log.Info("loading settings")
 
-	cfg, err := readConfigFile(log, configPath)
+	envPort, _ := strconv.Atoi(os.Getenv("PORT"))
+	envWriteTimeout, _ := strconv.Atoi(os.Getenv("WRITETIMAOUT"))
+	envReadTimeout, _ := strconv.Atoi(os.Getenv("READTIMEOUT"))
+	cfg := &config{
+		DbName:       os.Getenv("DBNAME"),
+		LogLevel:     os.Getenv("LOGLEVEL"),
+		Port:         envPort,
+		WriteTimeout: envWriteTimeout,
+		ReadTimeout:  envReadTimeout,
+	}
+
+	fileCfg, err := readConfigFile(log, configPath)
 
 	if err != nil {
 
@@ -54,7 +65,7 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 		log.Level = defaultLogLevel
 		log.Infof("logLevel's default value %v is setted", defaultLogLevel)
 
-		cfg = &config{}
+		fileCfg = &config{}
 	} else {
 		log.Infof("string logrus level: %s", cfg.LogLevel)
 		level, err := logrus.ParseLevel(cfg.LogLevel)
@@ -66,23 +77,35 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 	}
 
 	if cfg.DbName == "" {
-		cfg.DbName = defaultDbName
-		log.Infof("DbName can't be empty. Default value %v is setted", defaultDbName)
+		cfg.DbName = fileCfg.DbName
+		if cfg.DbName == "" {
+			cfg.DbName = defaultDbName
+			log.Infof("DbName can't be empty. Default value %v is setted", defaultDbName)
+		}
 	}
 
 	if cfg.Port == 0 {
-		cfg.Port = defaultPort
-		log.Infof("Port can't be 0. Default value %v is setted", defaultPort)
+		cfg.Port = fileCfg.Port
+		if cfg.Port == 0 {
+			cfg.Port = defaultPort
+			log.Infof("Port can't be 0. Default value %v is setted", defaultPort)
+		}
 	}
 
 	if cfg.ReadTimeout == 0 {
-		cfg.ReadTimeout = defaultReadTimeout
-		log.Infof("ReadTimeout can't be 0. Default value %v is setted", defaultReadTimeout)
+		cfg.ReadTimeout = fileCfg.ReadTimeout
+		if cfg.ReadTimeout == 0 {
+			cfg.ReadTimeout = defaultReadTimeout
+			log.Infof("ReadTimeout can't be 0. Default value %v is setted", defaultReadTimeout)
+		}
 	}
 
 	if cfg.WriteTimeout == 0 {
-		cfg.WriteTimeout = defaultWriteTimeout
-		log.Infof("WriteTimeout can't be 0. Default value %v is setted", defaultWriteTimeout)
+		cfg.WriteTimeout = fileCfg.WriteTimeout
+		if cfg.WriteTimeout == 0 {
+			cfg.WriteTimeout = defaultWriteTimeout
+			log.Infof("WriteTimeout can't be 0. Default value %v is setted", defaultWriteTimeout)
+		}
 	}
 
 	log.Info("Settings loaded")
