@@ -37,7 +37,7 @@ type app struct {
 
 const defaultDbName = "data.db"
 const defaultLogLevel = logrus.InfoLevel
-const defaultPort = 80
+const defaultPort = 8080
 const defaultWriteTimeout = 10
 const defaultReadTimeout = 10
 
