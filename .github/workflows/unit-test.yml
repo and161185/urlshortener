@@ -1,0 +1,11 @@
+name: unit-test
+on: push
+jobs:
+  tests:
+    steps:
+      - name:"Get go"
+        uses: actions/setup-go@v2
+      - name: "Checkout repository"
+        uses: actions/checkout@v2
+      - name: "Run tests"
+        run: go test -v ./...
