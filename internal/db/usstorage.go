@@ -163,7 +163,7 @@ func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme) (data *models.Shor
 		return nil, err
 	}
 
-	shortId = intToBase64(LastInsertedId)
+	shortId = getShortId(LastInsertedId)
 	updateSql := `UPDATE urls SET shortId = ? WHERE id = ?`
 	_, err = tx.Exec(updateSql, shortId, LastInsertedId)
 	if err != nil {
@@ -267,16 +267,20 @@ func (d *dbdriver) GetStats(statId string) (ss *models.StatsScheme, err error) {
 	return ss, nil
 }
 
-func intToBase64(value int64) string {
+func getShortId(value int64) string {
 	bi := big.NewInt(value)
-	encodedString := b64.StdEncoding.EncodeToString(bi.Bytes())
-	return strings.TrimRight(encodedString, "=")
+	slice := bi.Bytes()
+	return bytesToKey(&slice)
 }
 
 func NewStatKey() string {
 	id, _ := uuid.NewUUID()
 	slice := id[:]
+	return bytesToKey(&slice)
+}
 
-	encodedString := b64.StdEncoding.EncodeToString(slice)
-	return strings.TrimRight(encodedString, "=")
+func bytesToKey(src *[]byte) string {
+	encodedString := b64.StdEncoding.EncodeToString((*src))
+	encodedString = strings.TrimRight(encodedString, "=")
+	return strings.Replace(encodedString, "/", "-", -1)
 }
