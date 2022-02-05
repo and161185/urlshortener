@@ -31,7 +31,7 @@ func TestGetFullUrl(t *testing.T) {
 	log := getLog()
 	os.Remove("./database/" + dbname)
 	d := NewUSStorage(log, dbname)
-	os.Remove("./database/" + dbname)
+	defer os.Remove("./database/" + dbname)
 
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
@@ -47,7 +47,7 @@ func TestGetStats(t *testing.T) {
 	log := getLog()
 	os.Remove("./database/" + dbname)
 	d := NewUSStorage(log, dbname)
-	os.Remove("./database/" + dbname)
+	defer os.Remove("./database/" + dbname)
 
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
