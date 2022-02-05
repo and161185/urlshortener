@@ -2,6 +2,7 @@ name: unit-test
 on: push
 jobs:
   tests:
+    runs-on: ubuntu-latest
     steps:
       - name: "Get go"
         uses: actions/setup-go@v2
