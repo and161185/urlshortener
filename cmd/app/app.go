@@ -44,6 +44,7 @@ const defaultReadTimeout = 10
 func getConfig(log *logrus.Logger, configPath string) *config {
 	log.Info("loading settings")
 
+	//для Heroku сделано получение конфигурации из переменных среды
 	envPort, _ := strconv.Atoi(os.Getenv("PORT"))
 	envWriteTimeout, _ := strconv.Atoi(os.Getenv("WRITETIMAOUT"))
 	envReadTimeout, _ := strconv.Atoi(os.Getenv("READTIMEOUT"))
