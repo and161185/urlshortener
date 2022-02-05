@@ -198,7 +198,10 @@ func (a *app) Run() {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(a.config.ReadTimeout+a.config.WriteTimeout)*time.Second)
 	defer cancel()
-	srv.Shutdown(ctx)
+	err := srv.Shutdown(ctx)
+	if err != nil {
+		log.Fatal("err while shutting down", err)
+	}
 	a.log.Info("shutting down")
 	os.Exit(0)
 }

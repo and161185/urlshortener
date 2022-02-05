@@ -27,10 +27,18 @@ func NewUSStorage(log *logrus.Logger, dbname string) *dbdriver {
 
 	dir := "./database"
 	filename := "./database/" + dbname
-	os.MkdirAll(dir, 0755)
+	err := os.MkdirAll(dir, 0755)
+	if err != nil {
+		log.Fatal("can't create database directory", err)
+	}
 
-	if _, err := os.Stat(filename); errors.Is(err, os.ErrNotExist) {
-		os.Create(filename)
+	if _, err = os.Stat(filename); errors.Is(err, os.ErrNotExist) {
+		_, err = os.Create(filename)
+		if err != nil {
+			log.Fatal("can't create database file", err)
+		}
+	} else if err != nil {
+		log.Fatal(err)
 	}
 
 	db, err := sql.Open("sqlite3", filename)
@@ -82,7 +90,10 @@ func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		statement.Exec()
+		_, err = statement.Exec()
+		if err != nil {
+			log.Fatal("can't create urls table", err)
+		}
 		log.Info("urls table created")
 	} else {
 		log.Info("urls table exists")
@@ -116,7 +127,10 @@ func CreateClicksTable(db *sql.DB, log *logrus.Logger) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		statement.Exec()
+		_, err = statement.Exec()
+		if err != nil {
+			log.Fatal("can't create clicks table", err)
+		}
 		log.Info("clicks table created")
 	} else {
 		log.Info("clicks table exists")
@@ -151,15 +165,21 @@ func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme) (data *models.Shor
 	insertSQL := `INSERT INTO urls(statId, shortId, url, expirationDate) VALUES (?, ?, ?, ?)`
 	sqlResult, err := tx.Exec(insertSQL, statId, shortId, url.Url, expirationDate)
 	if err != nil {
-		tx.Rollback()
 		d.log.Error(err)
+		err = tx.Rollback()
+		if err != nil {
+			d.log.Fatal(err)
+		}
 		return nil, err
 	}
 
 	LastInsertedId, err := sqlResult.LastInsertId()
 	if err != nil {
-		tx.Rollback()
 		d.log.Error(err)
+		err = tx.Rollback()
+		if err != nil {
+			d.log.Fatal(err)
+		}
 		return nil, err
 	}
 
@@ -167,12 +187,23 @@ func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme) (data *models.Shor
 	updateSql := `UPDATE urls SET shortId = ? WHERE id = ?`
 	_, err = tx.Exec(updateSql, shortId, LastInsertedId)
 	if err != nil {
-		tx.Rollback()
 		d.log.Error(err)
+		err = tx.Rollback()
+		if err != nil {
+			d.log.Fatal(err)
+		}
 		return nil, err
 	}
 
-	tx.Commit()
+	err = tx.Commit()
+	if err != nil {
+		d.log.Error(err)
+		err = tx.Rollback()
+		if err != nil {
+			d.log.Fatal(err)
+		}
+		return nil, err
+	}
 
 	result := &models.ShortLinkScheme{
 		FullUrl:        url.Url,
@@ -248,7 +279,10 @@ func (d *dbdriver) GetStats(statId string) (ss *models.StatsScheme, err error) {
 		var ip string
 		var timeString string
 
-		rows.Scan(&ip, &timeString)
+		err := rows.Scan(&ip, &timeString)
+		if err != nil {
+			d.log.Error(err)
+		}
 
 		time, _ := time.Parse("2006-01-02 15:04:05.999999999-07:00", timeString)
 		click := &models.ClickScheme{

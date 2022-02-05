@@ -134,7 +134,10 @@ func (h *HandlerRedirect) registerClick(shortId string, r *http.Request) {
 		}
 	}
 
-	h.repo.RegisterClick(shortId, ip)
+	err = h.repo.RegisterClick(shortId, ip)
+	if err != nil {
+		h.log.Errorf("can't register click %s from ip %s", shortId, ip)
+	}
 }
 
 func LoggingMiddleware(logger *logrus.Logger) func(http.Handler) http.Handler {

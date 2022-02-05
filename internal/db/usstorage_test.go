@@ -53,7 +53,10 @@ func TestGetStats(t *testing.T) {
 		Url: "http:\\yandex.ru",
 	}
 	su, _ := d.GenerateShortUrl(us)
-	d.RegisterClick(su.ShortId, "127.0.0.1")
+	err := d.RegisterClick(su.ShortId, "127.0.0.1")
+	if err != nil {
+		log.Error(err)
+	}
 	stats, _ := d.GetStats(su.StatId)
 
 	assert.Equal(t, int64(1), stats.ClickCount)
