@@ -192,7 +192,7 @@ func (d *dbdriver) GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, 
 	err = rows.Scan(&fullUrl)
 
 	if err == sql.ErrNoRows {
-		error := errors.New("Short url doesn't exist")
+		error := errors.New("short url doesn't exist")
 		d.log.Error(error)
 		return nil, error
 	} else if err != nil {
@@ -229,7 +229,7 @@ func (d *dbdriver) GetStats(statId string) (ss *models.StatsScheme, err error) {
 	var clicksCount int64
 	err = row.Scan(&shortID, &expirationDateStr, &clicksCount)
 	if err == sql.ErrNoRows {
-		error := errors.New("Stat url doesn't exist")
+		error := errors.New("stat url doesn't exist")
 		d.log.Error(error)
 		return nil, error
 	} else if err != nil {
