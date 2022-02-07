@@ -15,7 +15,7 @@ func TestGenerateShortUrl(t *testing.T) {
 	dbname := "test_gsu.db"
 	log := getLog()
 	os.Remove("./database/" + dbname)
-	d := NewUSStorage(log, dbname)
+	d := NewUSStorage(log, "sqlite3", dbname)
 	defer os.Remove("./database/" + dbname)
 
 	us := models.FullUrlScheme{
@@ -30,7 +30,7 @@ func TestGetFullUrl(t *testing.T) {
 	dbname := "test_gfu.db"
 	log := getLog()
 	os.Remove("./database/" + dbname)
-	d := NewUSStorage(log, dbname)
+	d := NewUSStorage(log, "sqlite3", dbname)
 	defer os.Remove("./database/" + dbname)
 
 	us := models.FullUrlScheme{
@@ -46,7 +46,7 @@ func TestGetStats(t *testing.T) {
 	dbname := "test_gs.db"
 	log := getLog()
 	os.Remove("./database/" + dbname)
-	d := NewUSStorage(log, dbname)
+	d := NewUSStorage(log, "sqlite3", dbname)
 	defer os.Remove("./database/" + dbname)
 
 	us := models.FullUrlScheme{
