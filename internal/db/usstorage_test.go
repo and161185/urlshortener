@@ -1,9 +1,8 @@
 package usstorage
 
 import (
-	//"os"
-
 	"os"
+	"runtime"
 	"testing"
 	"urlshortener/internal/models"
 
@@ -16,14 +15,13 @@ func TestGenerateShortUrl(t *testing.T) {
 	log := getLog()
 	os.Remove("./database/" + dbname)
 	d := NewUSStorage(log, "sqlite3", dbname)
-	defer os.Remove("./database/" + dbname)
+	defer removeTestDB(d, log, "./database/"+dbname)
 
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
 	res, _ := d.GenerateShortUrl(us)
 	assert.Equal(t, "AQ", res.ShortId)
-
 }
 
 func TestGetFullUrl(t *testing.T) {
@@ -31,7 +29,7 @@ func TestGetFullUrl(t *testing.T) {
 	log := getLog()
 	os.Remove("./database/" + dbname)
 	d := NewUSStorage(log, "sqlite3", dbname)
-	defer os.Remove("./database/" + dbname)
+	defer removeTestDB(d, log, "./database/"+dbname)
 
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
@@ -40,6 +38,7 @@ func TestGetFullUrl(t *testing.T) {
 	res, _ := d.GetFullUrl(su.ShortId)
 
 	assert.Equal(t, "http:\\yandex.ru", res.Url)
+
 }
 
 func TestGetStats(t *testing.T) {
@@ -47,7 +46,7 @@ func TestGetStats(t *testing.T) {
 	log := getLog()
 	os.Remove("./database/" + dbname)
 	d := NewUSStorage(log, "sqlite3", dbname)
-	defer os.Remove("./database/" + dbname)
+	defer removeTestDB(d, log, "./database/"+dbname)
 
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
@@ -61,7 +60,6 @@ func TestGetStats(t *testing.T) {
 
 	assert.Equal(t, int64(1), stats.ClickCount)
 	assert.Equal(t, "127.0.0.1", stats.Clicks[0].IP)
-
 }
 
 func getLog() *logrus.Logger {
@@ -76,4 +74,14 @@ func getLog() *logrus.Logger {
 	log.Formatter = new(logrus.JSONFormatter)
 
 	return log
+}
+
+func removeTestDB(d *dbdriver, log *logrus.Logger, dbpath string) {
+	d.Close()
+
+	runtime.GC()
+	err := os.Remove(dbpath)
+	if err != nil {
+		log.Info(err)
+	}
 }
