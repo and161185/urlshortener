@@ -22,11 +22,12 @@ import (
 )
 
 type config struct {
-	DbName       string `yaml:"dbname"`
-	LogLevel     string `yaml:"logLevel"`
-	Port         int    `yaml:"port"`
-	WriteTimeout int    `yaml:"writetimeout"`
-	ReadTimeout  int    `yaml:"readtimeout"`
+	DBDriverName     string `yaml:"dbDriverName"`
+	ConnectionString string `yaml:"connectionString"`
+	LogLevel         string `yaml:"logLevel"`
+	Port             int    `yaml:"port"`
+	WriteTimeout     int    `yaml:"writetimeout"`
+	ReadTimeout      int    `yaml:"readtimeout"`
 }
 
 type app struct {
@@ -35,7 +36,8 @@ type app struct {
 	config *config
 }
 
-const defaultDbName = "data.db"
+const defaultDBDriverName = "sqlite3"
+const defaultConnectionString = "data.db"
 const defaultLogLevel = logrus.InfoLevel
 const defaultPort = 8080
 const defaultWriteTimeout = 10
@@ -49,11 +51,12 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 	envWriteTimeout, _ := strconv.Atoi(os.Getenv("WRITETIMAOUT"))
 	envReadTimeout, _ := strconv.Atoi(os.Getenv("READTIMEOUT"))
 	cfg := &config{
-		DbName:       os.Getenv("DBNAME"),
-		LogLevel:     os.Getenv("LOGLEVEL"),
-		Port:         envPort,
-		WriteTimeout: envWriteTimeout,
-		ReadTimeout:  envReadTimeout,
+		DBDriverName:     os.Getenv("DBDRIVERNAME"),
+		ConnectionString: os.Getenv("CONNECTIONSTRING"),
+		LogLevel:         os.Getenv("LOGLEVEL"),
+		Port:             envPort,
+		WriteTimeout:     envWriteTimeout,
+		ReadTimeout:      envReadTimeout,
 	}
 
 	fileCfg, err := readConfigFile(log, configPath)
@@ -77,11 +80,19 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 		log.Level = level
 	}
 
-	if cfg.DbName == "" {
-		cfg.DbName = fileCfg.DbName
-		if cfg.DbName == "" {
-			cfg.DbName = defaultDbName
-			log.Infof("DbName can't be empty. Default value %v is setted", defaultDbName)
+	if cfg.ConnectionString == "" {
+		cfg.ConnectionString = fileCfg.ConnectionString
+		if cfg.ConnectionString == "" {
+			cfg.ConnectionString = defaultConnectionString
+			log.Infof("DbName can't be empty. Default value %v is setted", defaultConnectionString)
+		}
+	}
+
+	if cfg.DBDriverName == "" {
+		cfg.DBDriverName = fileCfg.DBDriverName
+		if cfg.DBDriverName == "" {
+			cfg.DBDriverName = defaultDBDriverName
+			log.Infof("DBDriverName can't be empty. Default value %v is setted", defaultDBDriverName)
 		}
 	}
 
@@ -175,7 +186,7 @@ func NewApp() *app {
 
 func (a *app) Run() {
 
-	uss := usstorage.NewUSStorage(a.log, a.config.DbName)
+	uss := usstorage.NewUSStorage(a.log, a.config.DBDriverName, a.config.ConnectionString)
 	us := usrepo.NewUrlShortener(uss)
 	defer uss.Close()
 
@@ -190,10 +201,12 @@ func (a *app) Run() {
 	}
 
 	go func() {
-		log.Fatal(srv.ListenAndServe())
+		a.log.Infof("App is starting on port: %v", a.config.Port)
+		a.log.Fatal(srv.ListenAndServe())
 	}()
 
 	c := make(chan os.Signal, 1)
+
 	signal.Notify(c, os.Interrupt)
 	<-c
 
