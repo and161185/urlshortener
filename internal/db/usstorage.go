@@ -18,6 +18,8 @@ import (
 	"urlshortener/internal/models"
 )
 
+//CreateUrlsTable creates urls table (if doesn't exists) with fields:
+//id INTEGER, shortId TEXT, statId TEXT, url TEXT, expirationDate TIME
 func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
 	row, err := db.Query(checkTableSQL)
@@ -59,6 +61,9 @@ func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 	}
 }
 
+//CreateClicksTable creates clicks table (if doesn't exists) with fields:
+//shortId TEXT, IP TEXT, time TIME
+//clicks table collects stats for shortId
 func CreateClicksTable(db *sql.DB, log *logrus.Logger) {
 	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='clicks';"
 	row, err := db.Query(checkTableSQL)
@@ -96,10 +101,13 @@ func CreateClicksTable(db *sql.DB, log *logrus.Logger) {
 	}
 }
 
+//Close calls Close method of *sql.DB
 func (d *dbdriver) Close() {
 	d.db.Close()
 }
 
+//GenerateShortUrl inserts new row into urls table
+//returns scheme with shortId and relative data
 func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error) {
 
 	_, err = neturl.ParseRequestURI(url.Url)
@@ -174,6 +182,7 @@ func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme) (data *models.Shor
 	return result, nil
 }
 
+//GetFullUrl converts short id into full url
 func (d *dbdriver) GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, err error) {
 	query := `select url from urls WHERE shortId = ?`
 	rows := d.db.QueryRow(query, shortId)
@@ -195,6 +204,7 @@ func (d *dbdriver) GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, 
 	return urlScheme, nil
 }
 
+//RegisterClick inserts new row into clicks table
 func (d *dbdriver) RegisterClick(shortId string, ip string) (err error) {
 	insertSQL := `INSERT INTO clicks(shortId, IP, time) VALUES (?, ?, ?)`
 	_, err = d.db.Exec(insertSQL, shortId, ip, time.Now())
@@ -206,6 +216,7 @@ func (d *dbdriver) RegisterClick(shortId string, ip string) (err error) {
 	return err
 }
 
+//GetStats return stats scheme for short link using statId
 func (d *dbdriver) GetStats(statId string) (ss *models.StatsScheme, err error) {
 	query := `SELECT urls.ShortID, MAX(urls.expirationDate) as expirationDate, COALESCE(count(clicks.ShortId),0) as clickCount From urls 
 			LEFT JOIN clicks

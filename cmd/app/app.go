@@ -152,6 +152,7 @@ func readConfigFile(log *logrus.Logger, configPath string) (*config, error) {
 	return result, nil
 }
 
+//NewApp initializes application - set up logger and read configuration file
 func NewApp() *app {
 	log := logrus.New()
 	log.Level = logrus.DebugLevel
@@ -184,6 +185,7 @@ func NewApp() *app {
 	return a
 }
 
+//Run initializes storage and runs application
 func (a *app) Run() {
 
 	uss := usstorage.NewUSStorage(a.log, a.config.DBDriverName, a.config.ConnectionString)

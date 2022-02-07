@@ -22,6 +22,7 @@ func NewUrlShortener(r UrlShortenerRepo) *UrlShortener {
 	}
 }
 
+//GenerateShortUrl returns scheme with shortId and relative data
 func (us *UrlShortener) GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error) {
 	data, err = us.repo.GenerateShortUrl(url)
 	if err != nil {
@@ -31,6 +32,7 @@ func (us *UrlShortener) GenerateShortUrl(url models.FullUrlScheme) (data *models
 	return data, nil
 }
 
+//GetFullUrl converts short id into full url for redirect
 func (us *UrlShortener) GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, err error) {
 	urlScheme, err = us.repo.GetFullUrl(shortId)
 	if err != nil {
@@ -40,6 +42,7 @@ func (us *UrlShortener) GetFullUrl(shortId string) (urlScheme *models.FullUrlSch
 	return urlScheme, nil
 }
 
+//RegisterClick collects statistics for shortId
 func (us *UrlShortener) RegisterClick(shortId string, ip string) (err error) {
 	err = us.repo.RegisterClick(shortId, ip)
 	if err != nil {
@@ -49,6 +52,7 @@ func (us *UrlShortener) RegisterClick(shortId string, ip string) (err error) {
 	return nil
 }
 
+//RegisterClick statistics scheme for shortId using statId
 func (us *UrlShortener) GetStats(statId string) (ss *models.StatsScheme, err error) {
 	ss, err = us.repo.GetStats(statId)
 	if err != nil {
