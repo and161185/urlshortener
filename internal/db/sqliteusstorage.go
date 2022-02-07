@@ -5,59 +5,18 @@ import (
 	"errors"
 	"math/big"
 	neturl "net/url"
-	"os"
 	"strings"
 	"time"
 
 	b64 "encoding/base64"
 
 	"github.com/google/uuid"
+	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/sirupsen/logrus"
 
 	"urlshortener/internal/models"
 )
-
-type dbdriver struct {
-	db  *sql.DB
-	log *logrus.Logger
-}
-
-func NewUSStorage(log *logrus.Logger, dbname string) *dbdriver {
-
-	dir := "./database"
-	filename := "./database/" + dbname
-	err := os.MkdirAll(dir, 0755)
-	if err != nil {
-		log.Fatal("can't create database directory", err)
-	}
-
-	if _, err = os.Stat(filename); errors.Is(err, os.ErrNotExist) {
-		_, err = os.Create(filename)
-		if err != nil {
-			log.Fatal("can't create database file", err)
-		}
-	} else if err != nil {
-		log.Fatal(err)
-	}
-
-	db, err := sql.Open("sqlite3", filename)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	db.SetMaxOpenConns(25)
-	db.SetMaxIdleConns(25)
-	db.SetConnMaxLifetime(5 * time.Minute)
-
-	CreateUrlsTable(db, log)
-	CreateClicksTable(db, log)
-
-	return &dbdriver{
-		db:  db,
-		log: log,
-	}
-}
 
 func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"

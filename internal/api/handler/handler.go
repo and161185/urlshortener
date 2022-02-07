@@ -17,14 +17,14 @@ import (
 func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) *mux.Router {
 	router := mux.NewRouter()
 
-	handlerGenerate := &HandlerGenerate{log: log, repo: repo}
-	router.HandleFunc("/generate", handlerGenerate.ServeHTTP).Methods("POST")
+	handler := &Handler{log: log, repo: repo}
+	router.HandleFunc("/generate", handler.generate).Methods("POST")
 
-	handlerStats := &HandlerStats{log: log, repo: repo}
-	router.HandleFunc("/stat/{statid}", handlerStats.ServeHTTP).Methods("GET")
+	router.HandleFunc("/stat/{statid}", handler.stat).Methods("GET")
 
-	handlerRedirect := &HandlerRedirect{log: log, repo: repo}
-	router.HandleFunc("/{shorturl}", handlerRedirect.ServeHTTP).Methods("GET")
+	router.HandleFunc("/{shorturl}", handler.redirect).Methods("GET")
+
+	router.HandleFunc("/heart/beat", handler.heartbeat).Methods("GET")
 
 	loggingMiddleware := LoggingMiddleware(log)
 	router.Use(loggingMiddleware)
@@ -32,12 +32,16 @@ func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) *mux.Router {
 	return router
 }
 
-type HandlerGenerate struct {
+type Handler struct {
 	log  *logrus.Logger
 	repo *usrepo.UrlShortener
 }
 
-func (h *HandlerGenerate) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) heartbeat(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(200)
+}
+
+func (h *Handler) generate(w http.ResponseWriter, r *http.Request) {
 	h.log.Info("HandlerGenerate")
 
 	var urlData models.FullUrlScheme
@@ -69,12 +73,7 @@ func (h *HandlerGenerate) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, answer)
 }
 
-type HandlerStats struct {
-	log  *logrus.Logger
-	repo *usrepo.UrlShortener
-}
-
-func (h *HandlerStats) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) stat(w http.ResponseWriter, r *http.Request) {
 	h.log.Info("HandlerStats")
 
 	statId := strings.TrimLeft(r.RequestURI, "/stat/")
@@ -100,12 +99,7 @@ func (h *HandlerStats) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, answer)
 }
 
-type HandlerRedirect struct {
-	log  *logrus.Logger
-	repo *usrepo.UrlShortener
-}
-
-func (h *HandlerRedirect) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) redirect(w http.ResponseWriter, r *http.Request) {
 	shortId := strings.TrimLeft(r.RequestURI, "/")
 
 	urlScheme, err := h.repo.GetFullUrl(shortId)
@@ -120,7 +114,7 @@ func (h *HandlerRedirect) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	go h.registerClick(shortId, r)
 }
 
-func (h *HandlerRedirect) registerClick(shortId string, r *http.Request) {
+func (h *Handler) registerClick(shortId string, r *http.Request) {
 
 	ip, _, err := net.SplitHostPort(r.RemoteAddr)
 	if err != nil {
