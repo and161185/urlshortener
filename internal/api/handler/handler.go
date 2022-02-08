@@ -28,6 +28,8 @@ func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) http.Handler {
 
 	router.HandleFunc("/heart/beat", handler.heartbeat).Methods("GET")
 
+	router.HandleFunc("/", handler.front).Methods("GET")
+
 	CorsHandler := cors.Default().Handler(router)
 	loggingMiddleware := LoggingMiddleware(log)
 
