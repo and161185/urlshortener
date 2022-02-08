@@ -197,7 +197,7 @@ func (d *dbdriver) Close() {
 
 //GenerateShortUrl inserts new row into urls table
 //returns scheme with shortId and relative data
-func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme, hostname string) (data *models.ShortLinkScheme, err error) {
+func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error) {
 
 	_, err = neturl.ParseRequestURI(url.Url)
 	if err != nil {
@@ -263,8 +263,8 @@ func (d *dbdriver) GenerateShortUrl(url models.FullUrlScheme, hostname string) (
 
 	result := &models.ShortLinkScheme{
 		FullUrl:        url.Url,
-		ShortId:        hostname + shortId,
-		StatId:         hostname + statId,
+		ShortId:        shortId,
+		StatId:         statId,
 		ExpirationDate: expirationDate.Format("2006-01-02"),
 	}
 

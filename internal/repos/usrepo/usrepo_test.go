@@ -11,7 +11,7 @@ import (
 type mockStorage struct {
 }
 
-func (m *mockStorage) GenerateShortUrl(url models.FullUrlScheme, hostname string) (data *models.ShortLinkScheme, err error) {
+func (m *mockStorage) GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error) {
 	return &models.ShortLinkScheme{ShortId: "AQ"}, nil
 }
 
@@ -41,7 +41,7 @@ func TestGenerateShortUrl(t *testing.T) {
 	fus := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
-	res, _ := us.GenerateShortUrl(fus, "")
+	res, _ := us.GenerateShortUrl(fus)
 	assert.Equal(t, "AQ", res.ShortId)
 }
 
@@ -52,7 +52,7 @@ func TestGetFullUrl(t *testing.T) {
 	fus := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
-	su, _ := us.GenerateShortUrl(fus, "")
+	su, _ := us.GenerateShortUrl(fus)
 	res, _ := us.GetFullUrl(su.ShortId)
 
 	assert.Equal(t, "http:\\yandex.ru", res.Url)
@@ -66,7 +66,7 @@ func TestGetStats(t *testing.T) {
 	fus := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
-	su, _ := us.GenerateShortUrl(fus, "")
+	su, _ := us.GenerateShortUrl(fus)
 	err := us.RegisterClick(su.ShortId, "127.0.0.1")
 	if err != nil {
 		log := getLog()

@@ -20,7 +20,7 @@ func TestGenerateShortUrl(t *testing.T) {
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
-	res, _ := d.GenerateShortUrl(us, "")
+	res, _ := d.GenerateShortUrl(us)
 	assert.Equal(t, "AQ", res.ShortId)
 }
 
@@ -34,7 +34,7 @@ func TestGetFullUrl(t *testing.T) {
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
-	su, _ := d.GenerateShortUrl(us, "")
+	su, _ := d.GenerateShortUrl(us)
 	res, _ := d.GetFullUrl(su.ShortId)
 
 	assert.Equal(t, "http:\\yandex.ru", res.Url)
@@ -51,7 +51,7 @@ func TestGetStats(t *testing.T) {
 	us := models.FullUrlScheme{
 		Url: "http:\\yandex.ru",
 	}
-	su, _ := d.GenerateShortUrl(us, "")
+	su, _ := d.GenerateShortUrl(us)
 	err := d.RegisterClick(su.ShortId, "127.0.0.1")
 	if err != nil {
 		log.Error(err)
