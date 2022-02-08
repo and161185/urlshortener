@@ -69,7 +69,7 @@ func (h *Handler) front(w http.ResponseWriter, r *http.Request) {
 					return ` + "`" + `<li>${key}: <a href="${loc}/${value}">${loc}/${value}</a></li>` + "`" + `
 				  }
 				  if (key === 'StatId') {
-					return ` + "`" + `<li>${key}: <a href="${loc}/stats/${value}">${loc}/stats/${value}</a></li>` + "`" + `
+					return ` + "`" + `<li>${key}: <a href="${loc}/stat/${value}">${loc}/stats/${value}</a></li>` + "`" + `
 				  }
 				  return ` + "`" + `<li>${key}: ${value}</li>` + "`" + `})
 				  .join('\n');
