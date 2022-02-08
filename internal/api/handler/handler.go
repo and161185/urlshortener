@@ -12,9 +12,11 @@ import (
 
 	"urlshortener/internal/models"
 	"urlshortener/internal/repos/usrepo"
+
+	"github.com/rs/cors"
 )
 
-func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) *mux.Router {
+func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) http.Handler {
 	router := mux.NewRouter()
 
 	handler := &Handler{log: log, repo: repo}
@@ -26,11 +28,12 @@ func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) *mux.Router {
 
 	router.HandleFunc("/heart/beat", handler.heartbeat).Methods("GET")
 
+	CorsHandler := cors.Default().Handler(router)
 	loggingMiddleware := LoggingMiddleware(log)
-	router.Use(loggingMiddleware)
+
 	router.Use(loggingMiddleware)
 
-	return router
+	return CorsHandler
 }
 
 type Handler struct {
@@ -43,6 +46,7 @@ func (h *Handler) heartbeat(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) generate(w http.ResponseWriter, r *http.Request) {
+
 	h.log.Info("HandlerGenerate")
 
 	var urlData models.FullUrlScheme
@@ -152,12 +156,4 @@ func LoggingMiddleware(logger *logrus.Logger) func(http.Handler) http.Handler {
 
 		return http.HandlerFunc(fn)
 	}
-}
-
-func CORSMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-		next.ServeHTTP(w, req)
-	})
 }
