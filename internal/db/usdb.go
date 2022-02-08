@@ -55,8 +55,8 @@ func newUSStorageSqlite3(log *logrus.Logger, dbdrivername string, dbname string)
 	db.SetMaxIdleConns(25)
 	db.SetConnMaxLifetime(5 * time.Minute)
 
-	CreateUrlsTable(db, log)
-	CreateClicksTable(db, log)
+	CreateUrlsTableSqlite3(db, log)
+	CreateClicksTableSqlite3(db, log)
 
 	return &dbdriver{
 		db:  db,
@@ -66,7 +66,6 @@ func newUSStorageSqlite3(log *logrus.Logger, dbdrivername string, dbname string)
 
 func newUSStoragePostgres(log *logrus.Logger, dbdrivername string, dbname string) *dbdriver {
 
-	//dbdrivername := "user=pqgotest dbname=pqgotest sslmode=verify-full"
 	db, err := sql.Open(dbdrivername, dbname)
 	if err != nil {
 		log.Fatal("Cant connect to database", err)
@@ -74,7 +73,7 @@ func newUSStoragePostgres(log *logrus.Logger, dbdrivername string, dbname string
 
 	err = db.Ping()
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	log.Info("ping")
 
@@ -82,8 +81,8 @@ func newUSStoragePostgres(log *logrus.Logger, dbdrivername string, dbname string
 	db.SetMaxIdleConns(25)
 	db.SetConnMaxLifetime(5 * time.Minute)
 
-	CreateUrlsTable(db, log)
-	CreateClicksTable(db, log)
+	CreateUrlsTablePostgres(db, log)
+	CreateClicksTablePostgres(db, log)
 
 	return &dbdriver{
 		db:  db,
