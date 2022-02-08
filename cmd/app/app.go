@@ -170,7 +170,7 @@ func NewApp() *app {
 	}
 	log.Formatter = new(logrus.JSONFormatter)
 
-	var configPath *string = flag.String("conf", "..\\config\\config.yaml", "Configuration file's path")
+	var configPath *string = flag.String("conf", ".\\config\\config.yaml", "Configuration file's path")
 	flag.Parse()
 
 	conf := getConfig(log, (*configPath))

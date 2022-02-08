@@ -24,7 +24,8 @@ func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 
 	log.Info("Creating urls table")
 
-	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
+	//checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
+	checkTableSQL := "select 1"
 	row, err := db.Query(checkTableSQL)
 	if err != nil {
 		log.Fatal("Checking if urls table exists ", err)

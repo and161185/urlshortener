@@ -67,10 +67,16 @@ func newUSStorageSqlite3(log *logrus.Logger, dbdrivername string, dbname string)
 func newUSStoragePostgres(log *logrus.Logger, dbdrivername string, dbname string) *dbdriver {
 
 	//dbdrivername := "user=pqgotest dbname=pqgotest sslmode=verify-full"
-	db, err := sql.Open(dbdrivername, dbdrivername)
+	db, err := sql.Open(dbdrivername, dbname)
 	if err != nil {
 		log.Fatal("Cant connect to database", err)
 	}
+
+	err = db.Ping()
+	if err != nil {
+		panic(err)
+	}
+	log.Info("ping")
 
 	db.SetMaxOpenConns(25)
 	db.SetMaxIdleConns(25)
