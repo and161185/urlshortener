@@ -6,7 +6,7 @@ import (
 )
 
 type UrlShortenerRepo interface {
-	GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error)
+	GenerateShortUrl(url models.FullUrlScheme, hostname string) (data *models.ShortLinkScheme, err error)
 	GetFullUrl(shortId string) (urlScheme *models.FullUrlScheme, err error)
 	RegisterClick(shortId string, ip string) (err error)
 	GetStats(statId string) (ss *models.StatsScheme, err error)
@@ -23,8 +23,8 @@ func NewUrlShortener(r UrlShortenerRepo) *UrlShortener {
 }
 
 //GenerateShortUrl returns scheme with shortId and relative data
-func (us *UrlShortener) GenerateShortUrl(url models.FullUrlScheme) (data *models.ShortLinkScheme, err error) {
-	data, err = us.repo.GenerateShortUrl(url)
+func (us *UrlShortener) GenerateShortUrl(url models.FullUrlScheme, hostname string) (data *models.ShortLinkScheme, err error) {
+	data, err = us.repo.GenerateShortUrl(url, hostname)
 	if err != nil {
 		return nil, fmt.Errorf("generate short url error: %w", err)
 	}

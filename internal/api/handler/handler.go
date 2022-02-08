@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"net/url"
 	"strings"
 
 	"github.com/gorilla/mux"
@@ -57,7 +58,13 @@ func (h *Handler) generate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data, err := h.repo.GenerateShortUrl(urlData)
+	u, err := url.Parse(r.Host)
+	if err != nil {
+		panic(err)
+	}
+	urlString := u.Scheme + "://" + u.Host + "/"
+
+	data, err := h.repo.GenerateShortUrl(urlData, urlString)
 	if err != nil {
 		h.log.Error(err)
 		fmt.Fprint(w, err)
