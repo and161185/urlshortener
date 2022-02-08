@@ -17,7 +17,7 @@ type dbdriver struct {
 }
 
 func NewUSStorage(log *logrus.Logger, dbdrivername string, dbname string) *dbdriver {
-	log.Info(dbdrivername, dbname)
+	log.Info(dbdrivername, " ", dbname)
 	if dbdrivername == "sqlite3" {
 		return newUSStorageSqlite3(log, dbdrivername, dbname)
 	}

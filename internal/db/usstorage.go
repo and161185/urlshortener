@@ -22,12 +22,12 @@ import (
 //id INTEGER, shortId TEXT, statId TEXT, url TEXT, expirationDate TIME
 func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 
-	log.Info("Creating urlls table")
+	log.Info("Creating urls table")
 
 	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
 	row, err := db.Query(checkTableSQL)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Checking if urls table exists ", err)
 	}
 	defer row.Close()
 
@@ -52,7 +52,7 @@ func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 		log.Info("Create urls table...")
 		statement, err := db.Prepare(createStudentTableSQL) // Prepare SQL Statement
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal("Creating urls table ", err)
 		}
 		_, err = statement.Exec()
 		if err != nil {
