@@ -71,8 +71,8 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 
 		fileCfg = &config{}
 	} else {
-		log.Infof("string logrus level: %s", cfg.LogLevel)
-		level, err := logrus.ParseLevel(cfg.LogLevel)
+		log.Infof("string logrus level: %s", fileCfg.LogLevel)
+		level, err := logrus.ParseLevel(fileCfg.LogLevel)
 		if err != nil {
 			log.Errorf("Couldn't parse log level, got %v", err)
 			level = defaultLogLevel
@@ -170,7 +170,7 @@ func NewApp() *app {
 	}
 	log.Formatter = new(logrus.JSONFormatter)
 
-	var configPath *string = flag.String("conf", ".\\config\\config.yaml", "Configuration file's path")
+	var configPath *string = flag.String("conf", "..\\config\\config.yaml", "Configuration file's path")
 	flag.Parse()
 
 	conf := getConfig(log, (*configPath))

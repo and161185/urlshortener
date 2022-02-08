@@ -28,6 +28,7 @@ func NewHandler(log *logrus.Logger, repo *usrepo.UrlShortener) *mux.Router {
 
 	loggingMiddleware := LoggingMiddleware(log)
 	router.Use(loggingMiddleware)
+	router.Use(loggingMiddleware)
 
 	return router
 }
@@ -151,4 +152,12 @@ func LoggingMiddleware(logger *logrus.Logger) func(http.Handler) http.Handler {
 
 		return http.HandlerFunc(fn)
 	}
+}
+
+func CORSMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		next.ServeHTTP(w, req)
+	})
 }
