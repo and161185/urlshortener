@@ -21,6 +21,9 @@ import (
 //CreateUrlsTable creates urls table (if doesn't exists) with fields:
 //id INTEGER, shortId TEXT, statId TEXT, url TEXT, expirationDate TIME
 func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
+
+	log.Info("Creating urlls table")
+
 	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
 	row, err := db.Query(checkTableSQL)
 	if err != nil {
