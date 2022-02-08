@@ -52,7 +52,7 @@ func getConfig(log *logrus.Logger, configPath string) *config {
 	envReadTimeout, _ := strconv.Atoi(os.Getenv("READTIMEOUT"))
 	cfg := &config{
 		DBDriverName:     os.Getenv("DBDRIVERNAME"),
-		ConnectionString: os.Getenv("CONNECTIONSTRING"),
+		ConnectionString: os.Getenv("DATABASE_URL"),
 		LogLevel:         os.Getenv("LOGLEVEL"),
 		Port:             envPort,
 		WriteTimeout:     envWriteTimeout,
