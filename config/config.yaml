@@ -1,5 +1,5 @@
-connectionString: postgres://user:postgres@localhost:5432/urlshortener
-dbDriverName: postgres
+connectionString: data.db
+dbDriverName: sqlite3
 logLevel: debug
 port: 8080
 writetimeout: 10

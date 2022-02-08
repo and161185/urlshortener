@@ -20,12 +20,11 @@ import (
 
 //CreateUrlsTable creates urls table (if doesn't exists) with fields:
 //id INTEGER, shortId TEXT, statId TEXT, url TEXT, expirationDate TIME
-func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
+func CreateUrlsTableSqlite3(db *sql.DB, log *logrus.Logger) {
 
 	log.Info("Creating urls table")
 
-	//checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
-	checkTableSQL := "select 1"
+	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='urls';"
 	row, err := db.Query(checkTableSQL)
 	if err != nil {
 		log.Fatal("Checking if urls table exists ", err)
@@ -68,8 +67,94 @@ func CreateUrlsTable(db *sql.DB, log *logrus.Logger) {
 //CreateClicksTable creates clicks table (if doesn't exists) with fields:
 //shortId TEXT, IP TEXT, time TIME
 //clicks table collects stats for shortId
-func CreateClicksTable(db *sql.DB, log *logrus.Logger) {
+func CreateClicksTableSqlite3(db *sql.DB, log *logrus.Logger) {
 	checkTableSQL := "SELECT name FROM sqlite_master WHERE type='table' AND name='clicks';"
+	row, err := db.Query(checkTableSQL)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer row.Close()
+
+	urlsTabelExists := false
+	for row.Next() {
+		urlsTabelExists = true
+	}
+
+	if !urlsTabelExists {
+		createClicksTableSQL := `
+		CREATE TABLE clicks (
+			shortId TEXT NOT NULL
+						 REFERENCES urls (shortId) ON DELETE CASCADE,
+			IP      TEXT NOT NULL,
+			time    TIME NOT NULL
+		);`
+
+		log.Info("Create clicks table...")
+		statement, err := db.Prepare(createClicksTableSQL) // Prepare SQL Statement
+		if err != nil {
+			log.Fatal(err)
+		}
+		_, err = statement.Exec()
+		if err != nil {
+			log.Fatal("can't create clicks table", err)
+		}
+		log.Info("clicks table created")
+	} else {
+		log.Info("clicks table exists")
+	}
+}
+
+//CreateUrlsTable creates urls table (if doesn't exists) with fields:
+//id INTEGER, shortId TEXT, statId TEXT, url TEXT, expirationDate TIME
+func CreateUrlsTablePostgres(db *sql.DB, log *logrus.Logger) {
+
+	log.Info("Creating urls table")
+
+	checkTableSQL := "SELECT tablename FROM pg_tables WHERE tablename  = 'urls';"
+	row, err := db.Query(checkTableSQL)
+	if err != nil {
+		log.Fatal("Checking if urls table exists ", err)
+	}
+	defer row.Close()
+
+	urlsTabelExists := false
+	for row.Next() {
+		urlsTabelExists = true
+	}
+
+	if !urlsTabelExists {
+		createStudentTableSQL := `CREATE TABLE urls (
+			id		INTEGER PRIMARY KEY AUTOINCREMENT
+								UNIQUE
+								NOT NULL,
+			shortId	TEXT    NOT NULL
+								UNIQUE,
+			statId	TEXT    NOT NULL
+								UNIQUE,
+			url		TEXT    NOT NULL,
+			expirationDate TIME
+		);`
+
+		log.Info("Create urls table...")
+		statement, err := db.Prepare(createStudentTableSQL) // Prepare SQL Statement
+		if err != nil {
+			log.Fatal("Creating urls table ", err)
+		}
+		_, err = statement.Exec()
+		if err != nil {
+			log.Fatal("can't create urls table", err)
+		}
+		log.Info("urls table created")
+	} else {
+		log.Info("urls table exists")
+	}
+}
+
+//CreateClicksTable creates clicks table (if doesn't exists) with fields:
+//shortId TEXT, IP TEXT, time TIME
+//clicks table collects stats for shortId
+func CreateClicksTablePostgres(db *sql.DB, log *logrus.Logger) {
+	checkTableSQL := "SELECT tablename FROM pg_tables WHERE tablename  = 'clicks';"
 	row, err := db.Query(checkTableSQL)
 	if err != nil {
 		log.Fatal(err)
